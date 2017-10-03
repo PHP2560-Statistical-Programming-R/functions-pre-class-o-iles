@@ -113,12 +113,21 @@ WCGS.new <- wcgs[map_lgl(wcgs,is.numeric)] #numeric cols
 #  WCGS.new <- standardize.me(col)
 #}
 ```
-C. Using a loop and your new function, standardize all the variables WCGS.new dataset.
 
+C. Using a loop and your new function, standardize all the variables WCGS.new dataset.
+```{r}
+for(i in seq_along(WCGS.new)) {
+  WCGS.new[,i] <- standardize.me(WCGS.new[,i])
+}
+```
 
 D. What should the mean and standard deviation of all your new standardized variables be? Test your prediction by running a loop
-
-
+```{r}
+for(col in WCGS.new) {
+  print(mean(col,na.rm=TRUE))
+  print(sd(col,na.rm=TRUE))
+}
+```
 
 
 ### Question 2: Looping to Calculate
